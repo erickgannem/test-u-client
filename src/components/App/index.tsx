@@ -2,15 +2,30 @@ import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
-  Link,
   Route
 } from 'react-router-dom'
 
+import Navbar from '../Navbar'
+import Home from '../../pages/Home'
+import Places from '../../pages/Places'
+import UserDetails from '../../pages/UserDetails'
+
 function App () {
   return (
-    <>
-      <h1>App</h1>
-    </>
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/places">
+          <Places />
+        </Route>
+        <Route path="/user">
+          <UserDetails />
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 
