@@ -1,14 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
-import { Nav } from './styled'
+import { Nav, SLink } from './styled'
 
 function Navbar () {
   return (
     <Nav>
-      <Link to='/'>Home</Link>
-      <Link to='places'>Escuelas</Link>
-      <Link to='user'>Cuenta</Link>
+      <SLink to='/'>Home</SLink>
+      <SLink to='places'>Escuelas</SLink>
+      <SLink to='user'>Cuenta</SLink>
     </Nav>
   )
 }
