@@ -1,12 +1,20 @@
 import React from 'react'
+import { FaGraduationCap, FaSchool, FaUserAlt } from 'react-icons/fa'
+
 import { Nav, SLink } from './styled'
 
 function Navbar () {
   return (
     <Nav>
-      <SLink to='/'>Home</SLink>
-      <SLink to='places'>Escuelas</SLink>
-      <SLink to='user'>Cuenta</SLink>
+      <SLink to='/'>
+        <FaGraduationCap size={'2em'}/>
+      </SLink>
+      <SLink to='places'>
+        <FaSchool size={'2em'} />
+      </SLink>
+      <SLink to='user'>
+        <FaUserAlt size={'2em'} />
+      </SLink>
     </Nav>
   )
 }

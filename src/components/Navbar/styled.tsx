@@ -12,8 +12,7 @@ const Nav = styled.nav`
   align-items: center;
   background-color: ${dark01};
   color: ${light01};
-  padding: 0 ${padding15}px 0 ${padding15}px;
-  height: 45px;
+  padding: ${padding15}px;
 `
 
 const SLink = styled(Link)`
