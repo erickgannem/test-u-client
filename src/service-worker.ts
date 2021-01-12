@@ -80,3 +80,33 @@ self.addEventListener('message', (event) => {
 })
 
 // Any other custom service worker logic can go here.
+
+// ** Dynamic data caching
+const DYN_CACHE = 'dynamic-cache-v1'
+self.addEventListener('install', event => {
+  event.waitUntil((async function () {
+    const cache = caches.open(DYN_CACHE)
+    ;(await cache).add('https://jsonplaceholder.typicode.com/users')
+  })()
+  )
+})
+
+// ** Network-first approach
+self.addEventListener('fetch', event => {
+  if (~event.request.url.indexOf('jsonplaceholder')) {
+    event.respondWith(
+      (async function () {
+        try {
+          const apiRes = await fetch(event.request)
+          event.waitUntil(async function () {
+            const cache = await caches.open(DYN_CACHE)
+            cache.put(event.request, apiRes.clone())
+          })
+          return apiRes
+        } catch (err) {
+          return await caches.match(event.request) || await fetch(event.request)
+        }
+      })()
+    )
+  }
+})
