@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 
 import { colors, layout } from '../../assets/guideline'
 const { dark01, light01 } = colors
@@ -15,9 +15,9 @@ const Nav = styled.nav`
   padding: ${padding15}px;
 `
 
-const SLink = styled(Link)`
+const Link = styled(RouterLink)`
   text-decoration: none;
-  color: white
+  color: white;
 `
 
-export { Nav, SLink }
+export { Nav, Link }
