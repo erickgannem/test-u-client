@@ -12,7 +12,7 @@ const colors = {
 }
 
 const layout = {
-  padding15: 15
+  padding20: 20
 }
 
 export { colors, layout }
